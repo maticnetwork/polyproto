@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package heimdall_client;
+package heimdall;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
-option go_package = "./heimdallclient;heimdallclient";
+option go_package = "./heimdall;heimdall";
 
-service HeimdallClient {
+service Heimdall {
     rpc Span(SpanRequest) returns (SpanResponse) {}
     rpc StateSyncEvents(StateSyncEventsRequest) returns (stream StateSyncEventsResponse) {}
     rpc FetchCheckpoint(FetchCheckpointRequest) returns (FetchCheckpointResponse){}

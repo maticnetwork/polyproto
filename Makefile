@@ -45,4 +45,4 @@ protoc-clean:
 
 grpc: protoc-all
 	PATH="$(GOBIN):$(PATH)" protoc --proto_path=. --go_out=. --go-grpc_out=. -I=$(PROTOC_INCLUDE) \
-		heimdallclient/heimdall_client.proto
+		heimdall/heimdall.proto

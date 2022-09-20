@@ -136,7 +136,7 @@ message FetchMilestoneResponse {
 // ---- FETCH MILESTONE COUNT ----
 
 message MilestoneCount {
-    int64 Result = 1;
+    int64 Count = 1;
 }
 
 message FetchMilestoneCountResponse {

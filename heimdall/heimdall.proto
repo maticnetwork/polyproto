@@ -16,6 +16,7 @@ service Heimdall {
     rpc FetchMilestoneCount(google.protobuf.Empty) returns (FetchMilestoneCountResponse){}
     rpc FetchLastNoAckMilestone(google.protobuf.Empty) returns (FetchLastNoAckMilestoneResponse){}
     rpc FetchNoAckMilestone(FetchMilestoneNoAckRequest) returns (FetchMilestoneNoAckResponse){}
+    rpc FetchMilestoneID(FetchMilestoneIDRequest) returns (FetchMilestoneIDResponse){}
 }
 
 message H128 {
@@ -171,5 +172,19 @@ message FetchMilestoneNoAckRequest {
     string MilestoneID = 1;
 }
 
+// ---- FETCH MILESTONE ID ----
+
+message MilestoneID{
+	bool Result = 1;
+}
+
+message FetchMilestoneIDResponse{
+    string Height = 1;
+    MilestoneID Result = 2;
+}
+
+message FetchMilestoneIDRequest {
+    string MilestoneID = 1;
+}
 
 

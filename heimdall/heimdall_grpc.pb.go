@@ -31,6 +31,7 @@ type HeimdallClient interface {
 	FetchMilestoneCount(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FetchMilestoneCountResponse, error)
 	FetchLastNoAckMilestone(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FetchLastNoAckMilestoneResponse, error)
 	FetchNoAckMilestone(ctx context.Context, in *FetchMilestoneNoAckRequest, opts ...grpc.CallOption) (*FetchMilestoneNoAckResponse, error)
+	FetchMilestoneID(ctx context.Context, in *FetchMilestoneIDRequest, opts ...grpc.CallOption) (*FetchMilestoneIDResponse, error)
 }
 
 type heimdallClient struct {
@@ -136,6 +137,15 @@ func (c *heimdallClient) FetchNoAckMilestone(ctx context.Context, in *FetchMiles
 	return out, nil
 }
 
+func (c *heimdallClient) FetchMilestoneID(ctx context.Context, in *FetchMilestoneIDRequest, opts ...grpc.CallOption) (*FetchMilestoneIDResponse, error) {
+	out := new(FetchMilestoneIDResponse)
+	err := c.cc.Invoke(ctx, "/heimdall.Heimdall/FetchMilestoneID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // HeimdallServer is the server API for Heimdall service.
 // All implementations must embed UnimplementedHeimdallServer
 // for forward compatibility
@@ -148,6 +158,7 @@ type HeimdallServer interface {
 	FetchMilestoneCount(context.Context, *emptypb.Empty) (*FetchMilestoneCountResponse, error)
 	FetchLastNoAckMilestone(context.Context, *emptypb.Empty) (*FetchLastNoAckMilestoneResponse, error)
 	FetchNoAckMilestone(context.Context, *FetchMilestoneNoAckRequest) (*FetchMilestoneNoAckResponse, error)
+	FetchMilestoneID(context.Context, *FetchMilestoneIDRequest) (*FetchMilestoneIDResponse, error)
 	mustEmbedUnimplementedHeimdallServer()
 }
 
@@ -178,6 +189,9 @@ func (UnimplementedHeimdallServer) FetchLastNoAckMilestone(context.Context, *emp
 }
 func (UnimplementedHeimdallServer) FetchNoAckMilestone(context.Context, *FetchMilestoneNoAckRequest) (*FetchMilestoneNoAckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchNoAckMilestone not implemented")
+}
+func (UnimplementedHeimdallServer) FetchMilestoneID(context.Context, *FetchMilestoneIDRequest) (*FetchMilestoneIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchMilestoneID not implemented")
 }
 func (UnimplementedHeimdallServer) mustEmbedUnimplementedHeimdallServer() {}
 
@@ -339,6 +353,24 @@ func _Heimdall_FetchNoAckMilestone_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Heimdall_FetchMilestoneID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchMilestoneIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HeimdallServer).FetchMilestoneID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/heimdall.Heimdall/FetchMilestoneID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HeimdallServer).FetchMilestoneID(ctx, req.(*FetchMilestoneIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Heimdall_ServiceDesc is the grpc.ServiceDesc for Heimdall service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -373,6 +405,10 @@ var Heimdall_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FetchNoAckMilestone",
 			Handler:    _Heimdall_FetchNoAckMilestone_Handler,
+		},
+		{
+			MethodName: "FetchMilestoneID",
+			Handler:    _Heimdall_FetchMilestoneID_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

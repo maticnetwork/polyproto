@@ -1,3 +1,3 @@
 # Polyproto
 
-Proto files and generated code for Polygon network.
+Proto files and generated code for Nexus network.

@@ -3,7 +3,7 @@ package utils
 import (
 	"encoding/binary"
 
-	"github.com/maticnetwork/polyproto/heimdall"
+	"github.com/nexusblock/polyproto/heimdall"
 )
 
 func ConvertH160toAddress(h160 *heimdall.H160) [20]byte {

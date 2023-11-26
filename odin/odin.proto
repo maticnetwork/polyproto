@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package heimdall;
+package odin;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
-option go_package = "./heimdall;heimdall";
+option go_package = "./odin;odin";
 
-service Heimdall {
+service Odin {
     rpc Span(SpanRequest) returns (SpanResponse) {}
     rpc StateSyncEvents(StateSyncEventsRequest) returns (stream StateSyncEventsResponse) {}
     rpc FetchCheckpoint(FetchCheckpointRequest) returns (FetchCheckpointResponse){}

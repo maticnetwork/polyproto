@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.28.0
 // 	protoc        v3.21.2
-// source: heimdall/heimdall.proto
+// source: odin/odin.proto
 
-package heimdall
+package odin
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -34,7 +34,7 @@ type H128 struct {
 func (x *H128) Reset() {
 	*x = H128{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[0]
+		mi := &file_odin_odin_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -47,7 +47,7 @@ func (x *H128) String() string {
 func (*H128) ProtoMessage() {}
 
 func (x *H128) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[0]
+	mi := &file_odin_odin_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *H128) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use H128.ProtoReflect.Descriptor instead.
 func (*H128) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{0}
+	return file_odin_odin_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *H128) GetHi() uint64 {
@@ -89,7 +89,7 @@ type H160 struct {
 func (x *H160) Reset() {
 	*x = H160{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[1]
+		mi := &file_odin_odin_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -102,7 +102,7 @@ func (x *H160) String() string {
 func (*H160) ProtoMessage() {}
 
 func (x *H160) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[1]
+	mi := &file_odin_odin_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +115,7 @@ func (x *H160) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use H160.ProtoReflect.Descriptor instead.
 func (*H160) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{1}
+	return file_odin_odin_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *H160) GetHi() *H128 {
@@ -144,7 +144,7 @@ type H256 struct {
 func (x *H256) Reset() {
 	*x = H256{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[2]
+		mi := &file_odin_odin_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -157,7 +157,7 @@ func (x *H256) String() string {
 func (*H256) ProtoMessage() {}
 
 func (x *H256) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[2]
+	mi := &file_odin_odin_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -170,7 +170,7 @@ func (x *H256) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use H256.ProtoReflect.Descriptor instead.
 func (*H256) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{2}
+	return file_odin_odin_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *H256) GetHi() *H128 {
@@ -201,7 +201,7 @@ type Validator struct {
 func (x *Validator) Reset() {
 	*x = Validator{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[3]
+		mi := &file_odin_odin_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -214,7 +214,7 @@ func (x *Validator) String() string {
 func (*Validator) ProtoMessage() {}
 
 func (x *Validator) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[3]
+	mi := &file_odin_odin_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -227,7 +227,7 @@ func (x *Validator) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Validator.ProtoReflect.Descriptor instead.
 func (*Validator) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{3}
+	return file_odin_odin_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Validator) GetID() uint64 {
@@ -270,7 +270,7 @@ type ValidatorSet struct {
 func (x *ValidatorSet) Reset() {
 	*x = ValidatorSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[4]
+		mi := &file_odin_odin_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -283,7 +283,7 @@ func (x *ValidatorSet) String() string {
 func (*ValidatorSet) ProtoMessage() {}
 
 func (x *ValidatorSet) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[4]
+	mi := &file_odin_odin_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -296,7 +296,7 @@ func (x *ValidatorSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidatorSet.ProtoReflect.Descriptor instead.
 func (*ValidatorSet) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{4}
+	return file_odin_odin_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ValidatorSet) GetValidators() []*Validator {
@@ -329,7 +329,7 @@ type Span struct {
 func (x *Span) Reset() {
 	*x = Span{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[5]
+		mi := &file_odin_odin_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -342,7 +342,7 @@ func (x *Span) String() string {
 func (*Span) ProtoMessage() {}
 
 func (x *Span) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[5]
+	mi := &file_odin_odin_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +355,7 @@ func (x *Span) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Span.ProtoReflect.Descriptor instead.
 func (*Span) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{5}
+	return file_odin_odin_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Span) GetID() uint64 {
@@ -411,7 +411,7 @@ type SpanRequest struct {
 func (x *SpanRequest) Reset() {
 	*x = SpanRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[6]
+		mi := &file_odin_odin_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -424,7 +424,7 @@ func (x *SpanRequest) String() string {
 func (*SpanRequest) ProtoMessage() {}
 
 func (x *SpanRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[6]
+	mi := &file_odin_odin_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -437,7 +437,7 @@ func (x *SpanRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpanRequest.ProtoReflect.Descriptor instead.
 func (*SpanRequest) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{6}
+	return file_odin_odin_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *SpanRequest) GetID() uint64 {
@@ -459,7 +459,7 @@ type SpanResponse struct {
 func (x *SpanResponse) Reset() {
 	*x = SpanResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[7]
+		mi := &file_odin_odin_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -472,7 +472,7 @@ func (x *SpanResponse) String() string {
 func (*SpanResponse) ProtoMessage() {}
 
 func (x *SpanResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[7]
+	mi := &file_odin_odin_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -485,7 +485,7 @@ func (x *SpanResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpanResponse.ProtoReflect.Descriptor instead.
 func (*SpanResponse) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{7}
+	return file_odin_odin_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *SpanResponse) GetHeight() string {
@@ -519,7 +519,7 @@ type EventRecord struct {
 func (x *EventRecord) Reset() {
 	*x = EventRecord{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[8]
+		mi := &file_odin_odin_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -532,7 +532,7 @@ func (x *EventRecord) String() string {
 func (*EventRecord) ProtoMessage() {}
 
 func (x *EventRecord) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[8]
+	mi := &file_odin_odin_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -545,7 +545,7 @@ func (x *EventRecord) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventRecord.ProtoReflect.Descriptor instead.
 func (*EventRecord) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{8}
+	return file_odin_odin_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *EventRecord) GetID() uint64 {
@@ -610,7 +610,7 @@ type StateSyncEventsRequest struct {
 func (x *StateSyncEventsRequest) Reset() {
 	*x = StateSyncEventsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[9]
+		mi := &file_odin_odin_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -623,7 +623,7 @@ func (x *StateSyncEventsRequest) String() string {
 func (*StateSyncEventsRequest) ProtoMessage() {}
 
 func (x *StateSyncEventsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[9]
+	mi := &file_odin_odin_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -636,7 +636,7 @@ func (x *StateSyncEventsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StateSyncEventsRequest.ProtoReflect.Descriptor instead.
 func (*StateSyncEventsRequest) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{9}
+	return file_odin_odin_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *StateSyncEventsRequest) GetFromID() uint64 {
@@ -672,7 +672,7 @@ type StateSyncEventsResponse struct {
 func (x *StateSyncEventsResponse) Reset() {
 	*x = StateSyncEventsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[10]
+		mi := &file_odin_odin_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -685,7 +685,7 @@ func (x *StateSyncEventsResponse) String() string {
 func (*StateSyncEventsResponse) ProtoMessage() {}
 
 func (x *StateSyncEventsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[10]
+	mi := &file_odin_odin_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -698,7 +698,7 @@ func (x *StateSyncEventsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StateSyncEventsResponse.ProtoReflect.Descriptor instead.
 func (*StateSyncEventsResponse) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{10}
+	return file_odin_odin_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *StateSyncEventsResponse) GetHeight() string {
@@ -731,7 +731,7 @@ type Checkpoint struct {
 func (x *Checkpoint) Reset() {
 	*x = Checkpoint{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[11]
+		mi := &file_odin_odin_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -744,7 +744,7 @@ func (x *Checkpoint) String() string {
 func (*Checkpoint) ProtoMessage() {}
 
 func (x *Checkpoint) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[11]
+	mi := &file_odin_odin_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -757,7 +757,7 @@ func (x *Checkpoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Checkpoint.ProtoReflect.Descriptor instead.
 func (*Checkpoint) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{11}
+	return file_odin_odin_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Checkpoint) GetProposer() *H160 {
@@ -813,7 +813,7 @@ type FetchCheckpointRequest struct {
 func (x *FetchCheckpointRequest) Reset() {
 	*x = FetchCheckpointRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[12]
+		mi := &file_odin_odin_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -826,7 +826,7 @@ func (x *FetchCheckpointRequest) String() string {
 func (*FetchCheckpointRequest) ProtoMessage() {}
 
 func (x *FetchCheckpointRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[12]
+	mi := &file_odin_odin_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -839,7 +839,7 @@ func (x *FetchCheckpointRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchCheckpointRequest.ProtoReflect.Descriptor instead.
 func (*FetchCheckpointRequest) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{12}
+	return file_odin_odin_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *FetchCheckpointRequest) GetID() int64 {
@@ -861,7 +861,7 @@ type FetchCheckpointResponse struct {
 func (x *FetchCheckpointResponse) Reset() {
 	*x = FetchCheckpointResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[13]
+		mi := &file_odin_odin_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -874,7 +874,7 @@ func (x *FetchCheckpointResponse) String() string {
 func (*FetchCheckpointResponse) ProtoMessage() {}
 
 func (x *FetchCheckpointResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[13]
+	mi := &file_odin_odin_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -887,7 +887,7 @@ func (x *FetchCheckpointResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchCheckpointResponse.ProtoReflect.Descriptor instead.
 func (*FetchCheckpointResponse) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{13}
+	return file_odin_odin_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *FetchCheckpointResponse) GetHeight() string {
@@ -915,7 +915,7 @@ type CheckpointCount struct {
 func (x *CheckpointCount) Reset() {
 	*x = CheckpointCount{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[14]
+		mi := &file_odin_odin_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -928,7 +928,7 @@ func (x *CheckpointCount) String() string {
 func (*CheckpointCount) ProtoMessage() {}
 
 func (x *CheckpointCount) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[14]
+	mi := &file_odin_odin_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -941,7 +941,7 @@ func (x *CheckpointCount) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckpointCount.ProtoReflect.Descriptor instead.
 func (*CheckpointCount) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{14}
+	return file_odin_odin_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CheckpointCount) GetResult() int64 {
@@ -963,7 +963,7 @@ type FetchCheckpointCountResponse struct {
 func (x *FetchCheckpointCountResponse) Reset() {
 	*x = FetchCheckpointCountResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_heimdall_heimdall_proto_msgTypes[15]
+		mi := &file_odin_odin_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -976,7 +976,7 @@ func (x *FetchCheckpointCountResponse) String() string {
 func (*FetchCheckpointCountResponse) ProtoMessage() {}
 
 func (x *FetchCheckpointCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_heimdall_heimdall_proto_msgTypes[15]
+	mi := &file_odin_odin_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -989,7 +989,7 @@ func (x *FetchCheckpointCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchCheckpointCountResponse.ProtoReflect.Descriptor instead.
 func (*FetchCheckpointCountResponse) Descriptor() ([]byte, []int) {
-	return file_heimdall_heimdall_proto_rawDescGZIP(), []int{15}
+	return file_odin_odin_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *FetchCheckpointCountResponse) GetHeight() string {
@@ -1006,9 +1006,9 @@ func (x *FetchCheckpointCountResponse) GetResult() *CheckpointCount {
 	return nil
 }
 
-var File_heimdall_heimdall_proto protoreflect.FileDescriptor
+var File_odin_odin_proto protoreflect.FileDescriptor
 
-var file_heimdall_heimdall_proto_rawDesc = []byte{
+var file_odin_odin_proto_rawDesc = []byte{
 	0x0a, 0x17, 0x68, 0x65, 0x69, 0x6d, 0x64, 0x61, 0x6c, 0x6c, 0x2f, 0x68, 0x65, 0x69, 0x6d, 0x64,
 	0x61, 0x6c, 0x6c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x08, 0x68, 0x65, 0x69, 0x6d, 0x64,
 	0x61, 0x6c, 0x6c, 0x1a, 0x1f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74,
@@ -1150,63 +1150,63 @@ var file_heimdall_heimdall_proto_rawDesc = []byte{
 }
 
 var (
-	file_heimdall_heimdall_proto_rawDescOnce sync.Once
-	file_heimdall_heimdall_proto_rawDescData = file_heimdall_heimdall_proto_rawDesc
+	file_odin_odin_proto_rawDescOnce sync.Once
+	file_odin_odin_proto_rawDescData = file_odin_odin_proto_rawDesc
 )
 
-func file_heimdall_heimdall_proto_rawDescGZIP() []byte {
-	file_heimdall_heimdall_proto_rawDescOnce.Do(func() {
-		file_heimdall_heimdall_proto_rawDescData = protoimpl.X.CompressGZIP(file_heimdall_heimdall_proto_rawDescData)
+func file_odin_odin_proto_rawDescGZIP() []byte {
+	file_odin_odin_proto_rawDescOnce.Do(func() {
+		file_odin_odin_proto_rawDescData = protoimpl.X.CompressGZIP(file_odin_odin_proto_rawDescData)
 	})
-	return file_heimdall_heimdall_proto_rawDescData
+	return file_odin_odin_proto_rawDescData
 }
 
-var file_heimdall_heimdall_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
-var file_heimdall_heimdall_proto_goTypes = []interface{}{
-	(*H128)(nil),                         // 0: heimdall.H128
-	(*H160)(nil),                         // 1: heimdall.H160
-	(*H256)(nil),                         // 2: heimdall.H256
-	(*Validator)(nil),                    // 3: heimdall.Validator
-	(*ValidatorSet)(nil),                 // 4: heimdall.ValidatorSet
-	(*Span)(nil),                         // 5: heimdall.Span
-	(*SpanRequest)(nil),                  // 6: heimdall.SpanRequest
-	(*SpanResponse)(nil),                 // 7: heimdall.SpanResponse
-	(*EventRecord)(nil),                  // 8: heimdall.EventRecord
-	(*StateSyncEventsRequest)(nil),       // 9: heimdall.StateSyncEventsRequest
-	(*StateSyncEventsResponse)(nil),      // 10: heimdall.StateSyncEventsResponse
-	(*Checkpoint)(nil),                   // 11: heimdall.Checkpoint
-	(*FetchCheckpointRequest)(nil),       // 12: heimdall.FetchCheckpointRequest
-	(*FetchCheckpointResponse)(nil),      // 13: heimdall.FetchCheckpointResponse
-	(*CheckpointCount)(nil),              // 14: heimdall.CheckpointCount
-	(*FetchCheckpointCountResponse)(nil), // 15: heimdall.FetchCheckpointCountResponse
+var file_odin_odin_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_odin_odin_proto_goTypes = []interface{}{
+	(*H128)(nil),                         // 0: odin.H128
+	(*H160)(nil),                         // 1: odin.H160
+	(*H256)(nil),                         // 2: odin.H256
+	(*Validator)(nil),                    // 3: odin.Validator
+	(*ValidatorSet)(nil),                 // 4: odin.ValidatorSet
+	(*Span)(nil),                         // 5: odin.Span
+	(*SpanRequest)(nil),                  // 6: odin.SpanRequest
+	(*SpanResponse)(nil),                 // 7: odin.SpanResponse
+	(*EventRecord)(nil),                  // 8: odin.EventRecord
+	(*StateSyncEventsRequest)(nil),       // 9: odin.StateSyncEventsRequest
+	(*StateSyncEventsResponse)(nil),      // 10: odin.StateSyncEventsResponse
+	(*Checkpoint)(nil),                   // 11: odin.Checkpoint
+	(*FetchCheckpointRequest)(nil),       // 12: odin.FetchCheckpointRequest
+	(*FetchCheckpointResponse)(nil),      // 13: odin.FetchCheckpointResponse
+	(*CheckpointCount)(nil),              // 14: odin.CheckpointCount
+	(*FetchCheckpointCountResponse)(nil), // 15: odin.FetchCheckpointCountResponse
 	(*timestamppb.Timestamp)(nil),        // 16: google.protobuf.Timestamp
 	(*emptypb.Empty)(nil),                // 17: google.protobuf.Empty
 }
-var file_heimdall_heimdall_proto_depIdxs = []int32{
-	0,  // 0: heimdall.H160.Hi:type_name -> heimdall.H128
-	0,  // 1: heimdall.H256.Hi:type_name -> heimdall.H128
-	0,  // 2: heimdall.H256.Lo:type_name -> heimdall.H128
-	1,  // 3: heimdall.Validator.Address:type_name -> heimdall.H160
-	3,  // 4: heimdall.ValidatorSet.Validators:type_name -> heimdall.Validator
-	3,  // 5: heimdall.ValidatorSet.Proposer:type_name -> heimdall.Validator
-	4,  // 6: heimdall.Span.ValidatorSet:type_name -> heimdall.ValidatorSet
-	3,  // 7: heimdall.Span.SelectedProducers:type_name -> heimdall.Validator
-	5,  // 8: heimdall.SpanResponse.Result:type_name -> heimdall.Span
-	16, // 9: heimdall.EventRecord.Time:type_name -> google.protobuf.Timestamp
-	8,  // 10: heimdall.StateSyncEventsResponse.Result:type_name -> heimdall.EventRecord
-	1,  // 11: heimdall.Checkpoint.Proposer:type_name -> heimdall.H160
-	2,  // 12: heimdall.Checkpoint.RootHash:type_name -> heimdall.H256
-	16, // 13: heimdall.Checkpoint.Timestamp:type_name -> google.protobuf.Timestamp
-	11, // 14: heimdall.FetchCheckpointResponse.Result:type_name -> heimdall.Checkpoint
-	14, // 15: heimdall.FetchCheckpointCountResponse.Result:type_name -> heimdall.CheckpointCount
-	6,  // 16: heimdall.Heimdall.Span:input_type -> heimdall.SpanRequest
-	9,  // 17: heimdall.Heimdall.StateSyncEvents:input_type -> heimdall.StateSyncEventsRequest
-	12, // 18: heimdall.Heimdall.FetchCheckpoint:input_type -> heimdall.FetchCheckpointRequest
-	17, // 19: heimdall.Heimdall.FetchCheckpointCount:input_type -> google.protobuf.Empty
-	7,  // 20: heimdall.Heimdall.Span:output_type -> heimdall.SpanResponse
-	10, // 21: heimdall.Heimdall.StateSyncEvents:output_type -> heimdall.StateSyncEventsResponse
-	13, // 22: heimdall.Heimdall.FetchCheckpoint:output_type -> heimdall.FetchCheckpointResponse
-	15, // 23: heimdall.Heimdall.FetchCheckpointCount:output_type -> heimdall.FetchCheckpointCountResponse
+var file_odin_odin_proto_depIdxs = []int32{
+	0,  // 0: odin.H160.Hi:type_name -> odin.H128
+	0,  // 1: odin.H256.Hi:type_name -> odin.H128
+	0,  // 2: odin.H256.Lo:type_name -> odin.H128
+	1,  // 3: odin.Validator.Address:type_name -> odin.H160
+	3,  // 4: odin.ValidatorSet.Validators:type_name -> odin.Validator
+	3,  // 5: odin.ValidatorSet.Proposer:type_name -> odin.Validator
+	4,  // 6: odin.Span.ValidatorSet:type_name -> odin.ValidatorSet
+	3,  // 7: odin.Span.SelectedProducers:type_name -> odin.Validator
+	5,  // 8: odin.SpanResponse.Result:type_name -> odin.Span
+	16, // 9: odin.EventRecord.Time:type_name -> google.protobuf.Timestamp
+	8,  // 10: odin.StateSyncEventsResponse.Result:type_name -> odin.EventRecord
+	1,  // 11: odin.Checkpoint.Proposer:type_name -> odin.H160
+	2,  // 12: odin.Checkpoint.RootHash:type_name -> odin.H256
+	16, // 13: odin.Checkpoint.Timestamp:type_name -> google.protobuf.Timestamp
+	11, // 14: odin.FetchCheckpointResponse.Result:type_name -> odin.Checkpoint
+	14, // 15: odin.FetchCheckpointCountResponse.Result:type_name -> odin.CheckpointCount
+	6,  // 16: odin.Odin.Span:input_type -> odin.SpanRequest
+	9,  // 17: odin.Odin.StateSyncEvents:input_type -> odin.StateSyncEventsRequest
+	12, // 18: odin.Odin.FetchCheckpoint:input_type -> odin.FetchCheckpointRequest
+	17, // 19: odin.Odin.FetchCheckpointCount:input_type -> google.protobuf.Empty
+	7,  // 20: odin.Odin.Span:output_type -> odin.SpanResponse
+	10, // 21: odin.Odin.StateSyncEvents:output_type -> odin.StateSyncEventsResponse
+	13, // 22: odin.Odin.FetchCheckpoint:output_type -> odin.FetchCheckpointResponse
+	15, // 23: odin.Odin.FetchCheckpointCount:output_type -> odin.FetchCheckpointCountResponse
 	20, // [20:24] is the sub-list for method output_type
 	16, // [16:20] is the sub-list for method input_type
 	16, // [16:16] is the sub-list for extension type_name
@@ -1214,13 +1214,13 @@ var file_heimdall_heimdall_proto_depIdxs = []int32{
 	0,  // [0:16] is the sub-list for field type_name
 }
 
-func init() { file_heimdall_heimdall_proto_init() }
-func file_heimdall_heimdall_proto_init() {
-	if File_heimdall_heimdall_proto != nil {
+func init() { file_odin_odin_proto_init() }
+func file_odin_odin_proto_init() {
+	if File_odin_odin_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_heimdall_heimdall_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*H128); i {
 			case 0:
 				return &v.state
@@ -1232,7 +1232,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*H160); i {
 			case 0:
 				return &v.state
@@ -1244,7 +1244,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*H256); i {
 			case 0:
 				return &v.state
@@ -1256,7 +1256,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Validator); i {
 			case 0:
 				return &v.state
@@ -1268,7 +1268,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ValidatorSet); i {
 			case 0:
 				return &v.state
@@ -1280,7 +1280,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Span); i {
 			case 0:
 				return &v.state
@@ -1292,7 +1292,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SpanRequest); i {
 			case 0:
 				return &v.state
@@ -1304,7 +1304,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SpanResponse); i {
 			case 0:
 				return &v.state
@@ -1316,7 +1316,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EventRecord); i {
 			case 0:
 				return &v.state
@@ -1328,7 +1328,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StateSyncEventsRequest); i {
 			case 0:
 				return &v.state
@@ -1340,7 +1340,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StateSyncEventsResponse); i {
 			case 0:
 				return &v.state
@@ -1352,7 +1352,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Checkpoint); i {
 			case 0:
 				return &v.state
@@ -1364,7 +1364,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FetchCheckpointRequest); i {
 			case 0:
 				return &v.state
@@ -1376,7 +1376,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FetchCheckpointResponse); i {
 			case 0:
 				return &v.state
@@ -1388,7 +1388,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CheckpointCount); i {
 			case 0:
 				return &v.state
@@ -1400,7 +1400,7 @@ func file_heimdall_heimdall_proto_init() {
 				return nil
 			}
 		}
-		file_heimdall_heimdall_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_odin_odin_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FetchCheckpointCountResponse); i {
 			case 0:
 				return &v.state
@@ -1417,18 +1417,18 @@ func file_heimdall_heimdall_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_heimdall_heimdall_proto_rawDesc,
+			RawDescriptor: file_odin_odin_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_heimdall_heimdall_proto_goTypes,
-		DependencyIndexes: file_heimdall_heimdall_proto_depIdxs,
-		MessageInfos:      file_heimdall_heimdall_proto_msgTypes,
+		GoTypes:           file_odin_odin_proto_goTypes,
+		DependencyIndexes: file_odin_odin_proto_depIdxs,
+		MessageInfos:      file_odin_odin_proto_msgTypes,
 	}.Build()
-	File_heimdall_heimdall_proto = out.File
-	file_heimdall_heimdall_proto_rawDesc = nil
-	file_heimdall_heimdall_proto_goTypes = nil
-	file_heimdall_heimdall_proto_depIdxs = nil
+	File_odin_odin_proto = out.File
+	file_odin_odin_proto_rawDesc = nil
+	file_odin_odin_proto_goTypes = nil
+	file_odin_odin_proto_depIdxs = nil
 }

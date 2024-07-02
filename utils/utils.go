@@ -3,10 +3,10 @@ package utils
 import (
 	"encoding/binary"
 
-	"github.com/maticnetwork/polyproto/heimdall"
+	"github.com/maticnetwork/polyproto/common"
 )
 
-func ConvertH160toAddress(h160 *heimdall.H160) [20]byte {
+func ConvertH160toAddress(h160 *common.H160) [20]byte {
 	var addr [20]byte
 
 	binary.BigEndian.PutUint64(addr[0:], h160.Hi.Hi)
@@ -16,14 +16,14 @@ func ConvertH160toAddress(h160 *heimdall.H160) [20]byte {
 	return addr
 }
 
-func ConvertAddressToH160(addr [20]byte) *heimdall.H160 {
-	return &heimdall.H160{
+func ConvertAddressToH160(addr [20]byte) *common.H160 {
+	return &common.H160{
 		Lo: binary.BigEndian.Uint32(addr[16:]),
-		Hi: &heimdall.H128{Lo: binary.BigEndian.Uint64(addr[8:]), Hi: binary.BigEndian.Uint64(addr[0:])},
+		Hi: &common.H128{Lo: binary.BigEndian.Uint64(addr[8:]), Hi: binary.BigEndian.Uint64(addr[0:])},
 	}
 }
 
-func ConvertH256ToHash(h256 *heimdall.H256) [32]byte {
+func ConvertH256ToHash(h256 *common.H256) [32]byte {
 	var hash [32]byte
 
 	binary.BigEndian.PutUint64(hash[0:], h256.Hi.Hi)
@@ -34,9 +34,9 @@ func ConvertH256ToHash(h256 *heimdall.H256) [32]byte {
 	return hash
 }
 
-func ConvertHashToH256(hash [32]byte) *heimdall.H256 {
-	return &heimdall.H256{
-		Lo: &heimdall.H128{Lo: binary.BigEndian.Uint64(hash[24:]), Hi: binary.BigEndian.Uint64(hash[16:])},
-		Hi: &heimdall.H128{Lo: binary.BigEndian.Uint64(hash[8:]), Hi: binary.BigEndian.Uint64(hash[0:])},
+func ConvertHashToH256(hash [32]byte) *common.H256 {
+	return &common.H256{
+		Lo: &common.H128{Lo: binary.BigEndian.Uint64(hash[24:]), Hi: binary.BigEndian.Uint64(hash[16:])},
+		Hi: &common.H128{Lo: binary.BigEndian.Uint64(hash[8:]), Hi: binary.BigEndian.Uint64(hash[0:])},
 	}
 }

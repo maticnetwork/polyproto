@@ -24,10 +24,10 @@ const _ = grpc.SupportPackageIsVersion7
 type BorApiClient interface {
 	GetRootHash(ctx context.Context, in *GetRootHashRequest, opts ...grpc.CallOption) (*GetRootHashResponse, error)
 	GetVoteOnHash(ctx context.Context, in *GetVoteOnHashRequest, opts ...grpc.CallOption) (*GetVoteOnHashResponse, error)
-	GetHeaderByNumber(ctx context.Context, in *GetHeaderByNumberRequest, opts ...grpc.CallOption) (*GetHeaderByNumberResponse, error)
-	GetBlockByNumber(ctx context.Context, in *GetBlockByNumberRequest, opts ...grpc.CallOption) (*GetBlockByNumberResponse, error)
-	GetTransactionReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error)
-	GetBorBlockReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error)
+	HeaderByNumber(ctx context.Context, in *GetHeaderByNumberRequest, opts ...grpc.CallOption) (*GetHeaderByNumberResponse, error)
+	BlockByNumber(ctx context.Context, in *GetBlockByNumberRequest, opts ...grpc.CallOption) (*GetBlockByNumberResponse, error)
+	TransactionReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error)
+	BorBlockReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error)
 }
 
 type borApiClient struct {
@@ -56,36 +56,36 @@ func (c *borApiClient) GetVoteOnHash(ctx context.Context, in *GetVoteOnHashReque
 	return out, nil
 }
 
-func (c *borApiClient) GetHeaderByNumber(ctx context.Context, in *GetHeaderByNumberRequest, opts ...grpc.CallOption) (*GetHeaderByNumberResponse, error) {
+func (c *borApiClient) HeaderByNumber(ctx context.Context, in *GetHeaderByNumberRequest, opts ...grpc.CallOption) (*GetHeaderByNumberResponse, error) {
 	out := new(GetHeaderByNumberResponse)
-	err := c.cc.Invoke(ctx, "/bor.BorApi/GetHeaderByNumber", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/bor.BorApi/HeaderByNumber", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *borApiClient) GetBlockByNumber(ctx context.Context, in *GetBlockByNumberRequest, opts ...grpc.CallOption) (*GetBlockByNumberResponse, error) {
+func (c *borApiClient) BlockByNumber(ctx context.Context, in *GetBlockByNumberRequest, opts ...grpc.CallOption) (*GetBlockByNumberResponse, error) {
 	out := new(GetBlockByNumberResponse)
-	err := c.cc.Invoke(ctx, "/bor.BorApi/GetBlockByNumber", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/bor.BorApi/BlockByNumber", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *borApiClient) GetTransactionReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error) {
+func (c *borApiClient) TransactionReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error) {
 	out := new(ReceiptResponse)
-	err := c.cc.Invoke(ctx, "/bor.BorApi/GetTransactionReceipt", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/bor.BorApi/TransactionReceipt", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *borApiClient) GetBorBlockReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error) {
+func (c *borApiClient) BorBlockReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error) {
 	out := new(ReceiptResponse)
-	err := c.cc.Invoke(ctx, "/bor.BorApi/GetBorBlockReceipt", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/bor.BorApi/BorBlockReceipt", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,10 +98,10 @@ func (c *borApiClient) GetBorBlockReceipt(ctx context.Context, in *ReceiptReques
 type BorApiServer interface {
 	GetRootHash(context.Context, *GetRootHashRequest) (*GetRootHashResponse, error)
 	GetVoteOnHash(context.Context, *GetVoteOnHashRequest) (*GetVoteOnHashResponse, error)
-	GetHeaderByNumber(context.Context, *GetHeaderByNumberRequest) (*GetHeaderByNumberResponse, error)
-	GetBlockByNumber(context.Context, *GetBlockByNumberRequest) (*GetBlockByNumberResponse, error)
-	GetTransactionReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error)
-	GetBorBlockReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error)
+	HeaderByNumber(context.Context, *GetHeaderByNumberRequest) (*GetHeaderByNumberResponse, error)
+	BlockByNumber(context.Context, *GetBlockByNumberRequest) (*GetBlockByNumberResponse, error)
+	TransactionReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error)
+	BorBlockReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error)
 	mustEmbedUnimplementedBorApiServer()
 }
 
@@ -115,17 +115,17 @@ func (UnimplementedBorApiServer) GetRootHash(context.Context, *GetRootHashReques
 func (UnimplementedBorApiServer) GetVoteOnHash(context.Context, *GetVoteOnHashRequest) (*GetVoteOnHashResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVoteOnHash not implemented")
 }
-func (UnimplementedBorApiServer) GetHeaderByNumber(context.Context, *GetHeaderByNumberRequest) (*GetHeaderByNumberResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetHeaderByNumber not implemented")
+func (UnimplementedBorApiServer) HeaderByNumber(context.Context, *GetHeaderByNumberRequest) (*GetHeaderByNumberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HeaderByNumber not implemented")
 }
-func (UnimplementedBorApiServer) GetBlockByNumber(context.Context, *GetBlockByNumberRequest) (*GetBlockByNumberResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBlockByNumber not implemented")
+func (UnimplementedBorApiServer) BlockByNumber(context.Context, *GetBlockByNumberRequest) (*GetBlockByNumberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BlockByNumber not implemented")
 }
-func (UnimplementedBorApiServer) GetTransactionReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTransactionReceipt not implemented")
+func (UnimplementedBorApiServer) TransactionReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TransactionReceipt not implemented")
 }
-func (UnimplementedBorApiServer) GetBorBlockReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBorBlockReceipt not implemented")
+func (UnimplementedBorApiServer) BorBlockReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BorBlockReceipt not implemented")
 }
 func (UnimplementedBorApiServer) mustEmbedUnimplementedBorApiServer() {}
 
@@ -176,74 +176,74 @@ func _BorApi_GetVoteOnHash_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BorApi_GetHeaderByNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BorApi_HeaderByNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetHeaderByNumberRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BorApiServer).GetHeaderByNumber(ctx, in)
+		return srv.(BorApiServer).HeaderByNumber(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/bor.BorApi/GetHeaderByNumber",
+		FullMethod: "/bor.BorApi/HeaderByNumber",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BorApiServer).GetHeaderByNumber(ctx, req.(*GetHeaderByNumberRequest))
+		return srv.(BorApiServer).HeaderByNumber(ctx, req.(*GetHeaderByNumberRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BorApi_GetBlockByNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BorApi_BlockByNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBlockByNumberRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BorApiServer).GetBlockByNumber(ctx, in)
+		return srv.(BorApiServer).BlockByNumber(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/bor.BorApi/GetBlockByNumber",
+		FullMethod: "/bor.BorApi/BlockByNumber",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BorApiServer).GetBlockByNumber(ctx, req.(*GetBlockByNumberRequest))
+		return srv.(BorApiServer).BlockByNumber(ctx, req.(*GetBlockByNumberRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BorApi_GetTransactionReceipt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BorApi_TransactionReceipt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReceiptRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BorApiServer).GetTransactionReceipt(ctx, in)
+		return srv.(BorApiServer).TransactionReceipt(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/bor.BorApi/GetTransactionReceipt",
+		FullMethod: "/bor.BorApi/TransactionReceipt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BorApiServer).GetTransactionReceipt(ctx, req.(*ReceiptRequest))
+		return srv.(BorApiServer).TransactionReceipt(ctx, req.(*ReceiptRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BorApi_GetBorBlockReceipt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BorApi_BorBlockReceipt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReceiptRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BorApiServer).GetBorBlockReceipt(ctx, in)
+		return srv.(BorApiServer).BorBlockReceipt(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/bor.BorApi/GetBorBlockReceipt",
+		FullMethod: "/bor.BorApi/BorBlockReceipt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BorApiServer).GetBorBlockReceipt(ctx, req.(*ReceiptRequest))
+		return srv.(BorApiServer).BorBlockReceipt(ctx, req.(*ReceiptRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -264,20 +264,20 @@ var BorApi_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _BorApi_GetVoteOnHash_Handler,
 		},
 		{
-			MethodName: "GetHeaderByNumber",
-			Handler:    _BorApi_GetHeaderByNumber_Handler,
+			MethodName: "HeaderByNumber",
+			Handler:    _BorApi_HeaderByNumber_Handler,
 		},
 		{
-			MethodName: "GetBlockByNumber",
-			Handler:    _BorApi_GetBlockByNumber_Handler,
+			MethodName: "BlockByNumber",
+			Handler:    _BorApi_BlockByNumber_Handler,
 		},
 		{
-			MethodName: "GetTransactionReceipt",
-			Handler:    _BorApi_GetTransactionReceipt_Handler,
+			MethodName: "TransactionReceipt",
+			Handler:    _BorApi_TransactionReceipt_Handler,
 		},
 		{
-			MethodName: "GetBorBlockReceipt",
-			Handler:    _BorApi_GetBorBlockReceipt_Handler,
+			MethodName: "BorBlockReceipt",
+			Handler:    _BorApi_BorBlockReceipt_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

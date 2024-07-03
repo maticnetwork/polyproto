@@ -9,10 +9,10 @@ option go_package = "./bor;bor";
 service BorApi {
     rpc GetRootHash(GetRootHashRequest) returns (GetRootHashResponse) {}
     rpc GetVoteOnHash(GetVoteOnHashRequest) returns (GetVoteOnHashResponse) {}
-    rpc GetHeaderByNumber(GetHeaderByNumberRequest) returns (GetHeaderByNumberResponse) {}
-    rpc GetBlockByNumber(GetBlockByNumberRequest) returns (GetBlockByNumberResponse) {}
-    rpc GetTransactionReceipt(ReceiptRequest) returns (ReceiptResponse) {}
-    rpc GetBorBlockReceipt(ReceiptRequest) returns (ReceiptResponse) {}
+    rpc HeaderByNumber(GetHeaderByNumberRequest) returns (GetHeaderByNumberResponse) {}
+    rpc BlockByNumber(GetBlockByNumberRequest) returns (GetBlockByNumberResponse) {}
+    rpc TransactionReceipt(ReceiptRequest) returns (ReceiptResponse) {}
+    rpc BorBlockReceipt(ReceiptRequest) returns (ReceiptResponse) {}
 }
 
 

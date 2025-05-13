@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HeimdallClient interface {
 	Span(ctx context.Context, in *SpanRequest, opts ...grpc.CallOption) (*SpanResponse, error)
+	LatestSpan(ctx context.Context, in *LatestSpanRequest, opts ...grpc.CallOption) (*SpanResponse, error)
 	StateSyncEvents(ctx context.Context, in *StateSyncEventsRequest, opts ...grpc.CallOption) (Heimdall_StateSyncEventsClient, error)
 	FetchCheckpoint(ctx context.Context, in *FetchCheckpointRequest, opts ...grpc.CallOption) (*FetchCheckpointResponse, error)
 	FetchCheckpointCount(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FetchCheckpointCountResponse, error)
@@ -45,6 +46,15 @@ func NewHeimdallClient(cc grpc.ClientConnInterface) HeimdallClient {
 func (c *heimdallClient) Span(ctx context.Context, in *SpanRequest, opts ...grpc.CallOption) (*SpanResponse, error) {
 	out := new(SpanResponse)
 	err := c.cc.Invoke(ctx, "/heimdall.Heimdall/Span", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *heimdallClient) LatestSpan(ctx context.Context, in *LatestSpanRequest, opts ...grpc.CallOption) (*SpanResponse, error) {
+	out := new(SpanResponse)
+	err := c.cc.Invoke(ctx, "/heimdall.Heimdall/LatestSpan", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -151,6 +161,7 @@ func (c *heimdallClient) FetchMilestoneID(ctx context.Context, in *FetchMileston
 // for forward compatibility
 type HeimdallServer interface {
 	Span(context.Context, *SpanRequest) (*SpanResponse, error)
+	LatestSpan(context.Context, *LatestSpanRequest) (*SpanResponse, error)
 	StateSyncEvents(*StateSyncEventsRequest, Heimdall_StateSyncEventsServer) error
 	FetchCheckpoint(context.Context, *FetchCheckpointRequest) (*FetchCheckpointResponse, error)
 	FetchCheckpointCount(context.Context, *emptypb.Empty) (*FetchCheckpointCountResponse, error)
@@ -168,6 +179,9 @@ type UnimplementedHeimdallServer struct {
 
 func (UnimplementedHeimdallServer) Span(context.Context, *SpanRequest) (*SpanResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Span not implemented")
+}
+func (UnimplementedHeimdallServer) LatestSpan(context.Context, *LatestSpanRequest) (*SpanResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LatestSpan not implemented")
 }
 func (UnimplementedHeimdallServer) StateSyncEvents(*StateSyncEventsRequest, Heimdall_StateSyncEventsServer) error {
 	return status.Errorf(codes.Unimplemented, "method StateSyncEvents not implemented")
@@ -220,6 +234,24 @@ func _Heimdall_Span_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HeimdallServer).Span(ctx, req.(*SpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Heimdall_LatestSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LatestSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HeimdallServer).LatestSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/heimdall.Heimdall/LatestSpan",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HeimdallServer).LatestSpan(ctx, req.(*LatestSpanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -381,6 +413,10 @@ var Heimdall_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Span",
 			Handler:    _Heimdall_Span_Handler,
+		},
+		{
+			MethodName: "LatestSpan",
+			Handler:    _Heimdall_LatestSpan_Handler,
 		},
 		{
 			MethodName: "FetchCheckpoint",

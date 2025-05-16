@@ -28,6 +28,7 @@ type BorApiClient interface {
 	BlockByNumber(ctx context.Context, in *GetBlockByNumberRequest, opts ...grpc.CallOption) (*GetBlockByNumberResponse, error)
 	TransactionReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error)
 	BorBlockReceipt(ctx context.Context, in *ReceiptRequest, opts ...grpc.CallOption) (*ReceiptResponse, error)
+	GetStartBlockHeimdallSpanID(ctx context.Context, in *GetStartBlockHeimdallSpanIDRequest, opts ...grpc.CallOption) (*GetStartBlockHeimdallSpanIDResponse, error)
 }
 
 type borApiClient struct {
@@ -92,6 +93,15 @@ func (c *borApiClient) BorBlockReceipt(ctx context.Context, in *ReceiptRequest, 
 	return out, nil
 }
 
+func (c *borApiClient) GetStartBlockHeimdallSpanID(ctx context.Context, in *GetStartBlockHeimdallSpanIDRequest, opts ...grpc.CallOption) (*GetStartBlockHeimdallSpanIDResponse, error) {
+	out := new(GetStartBlockHeimdallSpanIDResponse)
+	err := c.cc.Invoke(ctx, "/bor.BorApi/GetStartBlockHeimdallSpanID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BorApiServer is the server API for BorApi service.
 // All implementations must embed UnimplementedBorApiServer
 // for forward compatibility
@@ -102,6 +112,7 @@ type BorApiServer interface {
 	BlockByNumber(context.Context, *GetBlockByNumberRequest) (*GetBlockByNumberResponse, error)
 	TransactionReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error)
 	BorBlockReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error)
+	GetStartBlockHeimdallSpanID(context.Context, *GetStartBlockHeimdallSpanIDRequest) (*GetStartBlockHeimdallSpanIDResponse, error)
 	mustEmbedUnimplementedBorApiServer()
 }
 
@@ -126,6 +137,9 @@ func (UnimplementedBorApiServer) TransactionReceipt(context.Context, *ReceiptReq
 }
 func (UnimplementedBorApiServer) BorBlockReceipt(context.Context, *ReceiptRequest) (*ReceiptResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BorBlockReceipt not implemented")
+}
+func (UnimplementedBorApiServer) GetStartBlockHeimdallSpanID(context.Context, *GetStartBlockHeimdallSpanIDRequest) (*GetStartBlockHeimdallSpanIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStartBlockHeimdallSpanID not implemented")
 }
 func (UnimplementedBorApiServer) mustEmbedUnimplementedBorApiServer() {}
 
@@ -248,6 +262,24 @@ func _BorApi_BorBlockReceipt_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BorApi_GetStartBlockHeimdallSpanID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartBlockHeimdallSpanIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BorApiServer).GetStartBlockHeimdallSpanID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bor.BorApi/GetStartBlockHeimdallSpanID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BorApiServer).GetStartBlockHeimdallSpanID(ctx, req.(*GetStartBlockHeimdallSpanIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // BorApi_ServiceDesc is the grpc.ServiceDesc for BorApi service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -278,6 +310,10 @@ var BorApi_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "BorBlockReceipt",
 			Handler:    _BorApi_BorBlockReceipt_Handler,
+		},
+		{
+			MethodName: "GetStartBlockHeimdallSpanID",
+			Handler:    _BorApi_GetStartBlockHeimdallSpanID_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
